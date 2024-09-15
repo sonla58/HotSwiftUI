@@ -8,5 +8,4 @@
 import Foundation
 
 @attached(member, names: named(_redraw))
-@attached(peer)
 public macro HotReload() = #externalMacro(module: "HotReloadMacros", type: "HotReloadMacro")

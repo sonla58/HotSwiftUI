@@ -6,7 +6,7 @@ import CompilerPluginSupport
 
 let package = Package(
     name: "HotSwiftUI",
-    platforms: [.macOS("10.15"), .iOS("13.0"), .tvOS("13.0")],
+    platforms: [.macOS(.v10_15), .iOS(.v13), .tvOS(.v13)],
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
@@ -38,5 +38,11 @@ let package = Package(
         .testTarget(
             name: "HotSwiftUITests",
             dependencies: ["HotSwiftUI"]),
+        .testTarget(
+            name: "HotReloadMacrosTests",
+            dependencies: [
+                "HotReloadMacros",
+                .product(name: "SwiftSyntaxMacrosTestSupport", package: "swift-syntax"),
+            ]),
     ]
 )
